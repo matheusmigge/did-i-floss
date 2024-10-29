@@ -305,16 +305,6 @@
 			path = ShareSheet;
 			sourceTree = "<group>";
 		};
-		0C2CCA8E2B852E6E0024B376 /* Streak */ = {
-			isa = PBXGroup;
-			children = (
-				56FB7AFB2B699BE8009082EE /* WarningBannerModel.swift */,
-				564891A82B6C4E050008F323 /* StreakBoardModel.swift */,
-				0C2CCA932B852EDD0024B376 /* StreakInfo.swift */,
-			);
-			path = Streak;
-			sourceTree = "<group>";
-		};
 		0C2CCA8F2B852E970024B376 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -438,22 +428,6 @@
 			path = Root;
 			sourceTree = "<group>";
 		};
-		0C75ADE62B97F34400623335 /* LogRecords */ = {
-			isa = PBXGroup;
-			children = (
-				0C2FE4512B635C4600BAC3E8 /* LogRecordsView.swift */,
-			);
-			path = LogRecords;
-			sourceTree = "<group>";
-		};
-		0C75ADE72B97F34D00623335 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				0C2FE44B2B619C0B00BAC3E8 /* HomeView.swift */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
 		0C79CE8C2B710806001EFC7C /* FlossRecord */ = {
 			isa = PBXGroup;
 			children = (
@@ -523,32 +497,72 @@
 			isa = PBXGroup;
 			children = (
 				562749CF2B43AD61004F37A0 /* Constants.swift */,
-				0C2CCA8E2B852E6E0024B376 /* Streak */,
 				0C79CE8C2B710806001EFC7C /* FlossRecord */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		0C8981F22B466306008CFD5D /* Service */ = {
+		0C8E9BED2CD12A3A001F6AF0 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				5679991A2B4480C200941D75 /* Components */,
+				0C5555602B881F0400CADA1B /* Developer */,
+				0C8981F12B4662F0008CFD5D /* Model */,
+				0C75ADE52B97F33500623335 /* Root */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		0C8E9BEF2CD12A53001F6AF0 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
 				0C5555592B87D54600CADA1B /* UserFeedback */,
 				0C2CCA952B8530160024B376 /* StreakManager */,
 				0C7E92362B46FDD30079525D /* Persistence */,
+				0C8E9BF72CD12BB2001F6AF0 /* AddLogRecords */,
+				0C8E9BF42CD12B1B001F6AF0 /* LogRecords */,
+				0C8E9BF12CD12A80001F6AF0 /* Home */,
+				0CB342452B6C4D8C00B68277 /* Onboarding */,
 			);
-			path = Service;
+			path = Feature;
 			sourceTree = "<group>";
 		};
-		0C90A2F62B6D818F00015298 /* LogRecord */ = {
+		0C8E9BF12CD12A80001F6AF0 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				0C916C4A2B6C70570041FE3B /* LogRecordsViewModel.swift */,
-				0C90A2F82B6D81BE00015298 /* LogRecordsViewModel+CalendarDelegate.swift */,
+				0C8E9BF62CD12B85001F6AF0 /* Presentation */,
+				0C8E9BF32CD12B00001F6AF0 /* Model */,
 			);
-			path = LogRecord;
+			path = Home;
 			sourceTree = "<group>";
 		};
-		0C90A2F72B6D819900015298 /* Home */ = {
+		0C8E9BF22CD12A9F001F6AF0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0C2FE44B2B619C0B00BAC3E8 /* HomeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0C8E9BF32CD12B00001F6AF0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				56FB7AFB2B699BE8009082EE /* WarningBannerModel.swift */,
+				564891A82B6C4E050008F323 /* StreakBoardModel.swift */,
+				0C2CCA932B852EDD0024B376 /* StreakInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0C8E9BF42CD12B1B001F6AF0 /* LogRecords */ = {
+			isa = PBXGroup;
+			children = (
+				0C8E9BFA2CD12BEB001F6AF0 /* Presentation */,
+			);
+			path = LogRecords;
+			sourceTree = "<group>";
+		};
+		0C8E9BF52CD12B7A001F6AF0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				563008432B61A7EE00290875 /* HomeViewModel.swift */,
@@ -558,7 +572,51 @@
 				0C90A3002B6D82DB00015298 /* HomeViewModel+PersistenceDelegate.swift */,
 				0C02028D2B97EF9F00FA65F0 /* HomeViewModel+CalendarViewDelegate.swift */,
 			);
-			path = Home;
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0C8E9BF62CD12B85001F6AF0 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				0C8E9BF52CD12B7A001F6AF0 /* ViewModel */,
+				0C8E9BF22CD12A9F001F6AF0 /* View */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		0C8E9BF72CD12BB2001F6AF0 /* AddLogRecords */ = {
+			isa = PBXGroup;
+			children = (
+				0CB3424A2B6C4E4800B68277 /* Protocol */,
+				0CB342492B6C4E4200B68277 /* View */,
+			);
+			path = AddLogRecords;
+			sourceTree = "<group>";
+		};
+		0C8E9BF82CD12BD4001F6AF0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0C2FE4512B635C4600BAC3E8 /* LogRecordsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0C8E9BF92CD12BDB001F6AF0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0C916C4A2B6C70570041FE3B /* LogRecordsViewModel.swift */,
+				0C90A2F82B6D81BE00015298 /* LogRecordsViewModel+CalendarDelegate.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0C8E9BFA2CD12BEB001F6AF0 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				0C8E9BF82CD12BD4001F6AF0 /* View */,
+				0C8E9BF92CD12BDB001F6AF0 /* ViewModel */,
+			);
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 		0CB3423C2B6C439400B68277 /* Celebration */ = {
@@ -590,9 +648,9 @@
 		0CB342432B6C450C00B68277 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0C79CE8A2B710289001EFC7C /* CalendarView+WeekView.swift */,
 				0C88C7762B5322540040494D /* CalendarView.swift */,
 				0C79CE882B710276001EFC7C /* CalendarView+MonthView.swift */,
-				0C79CE8A2B710289001EFC7C /* CalendarView+WeekView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -628,15 +686,6 @@
 				0CB342362B6C0AF600B68277 /* OnboardingRowInfoModel.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		0CB342482B6C4E3600B68277 /* AddFlossRecord */ = {
-			isa = PBXGroup;
-			children = (
-				0CB3424A2B6C4E4800B68277 /* Protocol */,
-				0CB342492B6C4E4200B68277 /* View */,
-			);
-			path = AddFlossRecord;
 			sourceTree = "<group>";
 		};
 		0CB342492B6C4E4200B68277 /* View */ = {
@@ -773,20 +822,6 @@
 			path = StreakBanner;
 			sourceTree = "<group>";
 		};
-		567999192B4480A500941D75 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				0CB342482B6C4E3600B68277 /* AddFlossRecord */,
-				5679991A2B4480C200941D75 /* Components */,
-				0C5555602B881F0400CADA1B /* Developer */,
-				0C75ADE72B97F34D00623335 /* Home */,
-				0C75ADE62B97F34400623335 /* LogRecords */,
-				0CB342452B6C4D8C00B68277 /* Onboarding */,
-				0C75ADE52B97F33500623335 /* Root */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		5679991A2B4480C200941D75 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -800,15 +835,6 @@
 				561DBA7B2B45DCF10052EE78 /* BackgroundView.swift */,
 			);
 			path = Components;
-			sourceTree = "<group>";
-		};
-		5679991B2B4480F400941D75 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				0C90A2F72B6D819900015298 /* Home */,
-				0C90A2F62B6D818F00015298 /* LogRecord */,
-			);
-			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		56C33DEA2B3CAA1000D8DEB7 = {
@@ -837,14 +863,12 @@
 		56C33DF52B3CAA1000D8DEB7 /* DidIFloss */ = {
 			isa = PBXGroup;
 			children = (
+				0C8E9BEF2CD12A53001F6AF0 /* Feature */,
+				0C8E9BED2CD12A3A001F6AF0 /* Core */,
 				562749CE2B43A64C004F37A0 /* Info.plist */,
 				56C33DF62B3CAA1000D8DEB7 /* DidIFlossApp.swift */,
-				567999192B4480A500941D75 /* Views */,
 				0C3DB6BF2BB358D800CADE57 /* UseCases */,
 				0CEB25CC2B56FF4200B14298 /* Extensions */,
-				5679991B2B4480F400941D75 /* ViewModels */,
-				0C8981F22B466306008CFD5D /* Service */,
-				0C8981F12B4662F0008CFD5D /* Model */,
 				56C33DFA2B3CAA1500D8DEB7 /* Assets.xcassets */,
 				0C196DFE2B614E7600EDD0B3 /* Launch Screen.storyboard */,
 				56C33DFC2B3CAA1500D8DEB7 /* DidIFloss.entitlements */,
