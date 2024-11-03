@@ -8,14 +8,32 @@
 import Foundation
 import Notification
 
+/// A protocol that defines the use case for handling interactions with flossing log records.
 protocol HandleLogInteractionUseCaseProtocol {
+    
+    /// Handles logging a new floss record for a specified date.
+    ///
+    /// - Parameter date: The date to log the floss record.
     func handleLogRecord(for date: Date)
     
+    /// Removes a specific floss record.
+    ///
+    /// - Parameter record: The `FlossRecord` to be removed.
     func removeLogRecord(for record: FlossRecord)
     
+    /// Removes all floss records associated with a specific date.
+    ///
+    /// - Parameter date: The date for which all records should be removed.
     func removeAllLogRecords(for date: Date)
 }
 
+
+/// A use case struct responsible for managing interactions with flossing log records.
+///
+/// The `HandleLogInteractionUseCase` handles operations such as logging a new floss record,
+/// removing a specific floss record, and removing all records for a given date.
+/// It interacts with a `PersistenceManagerProtocol` to manage data persistence and
+/// a `FlossRemindersService` to handle scheduling and clearing reminders.
 struct HandleLogInteractionUseCase: HandleLogInteractionUseCaseProtocol {
     
     let recordsRepository: PersistenceManagerProtocol
