@@ -8,7 +8,14 @@
 import Foundation
 import UIKit
 
+/// A protocol that defines the behavior of a haptic feedback generator.
+///
+/// This protocol is used to abstract the `UINotificationFeedbackGenerator` for testing
+/// and customization purposes.
 protocol UINotificationFeedbackGeneratable {
-    func notificationOccurred(_ notificationType: UINotificationFeedbackGenerator.FeedbackType)
     
+    /// Triggers a haptic feedback of the specified type.
+    ///
+    /// - Parameter notificationType: The type of haptic feedback to trigger.
+    func notificationOccurred(_ notificationType: UINotificationFeedbackGenerator.FeedbackType)
 }

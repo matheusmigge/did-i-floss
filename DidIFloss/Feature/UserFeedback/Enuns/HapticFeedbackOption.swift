@@ -8,9 +8,26 @@
 import Foundation
 import UIKit
 
+/// An enumeration representing different haptic feedback options.
+///
+/// The `HapticFeedbackOption` enum allows customization of haptic feedback
+/// styles, including short, medium, long, or none.
 enum HapticFeedbackOption: Hashable {
-    case short, medium, long, none
+    /// A short haptic feedback, corresponding to a `.success` feedback style.
+    case short
     
+    /// A medium haptic feedback, corresponding to a `.warning` feedback style.
+    case medium
+    
+    /// A long haptic feedback, corresponding to an `.error` feedback style.
+    case long
+    
+    /// No haptic feedback.
+    case none
+    
+    /// Maps the `HapticFeedbackOption` to a `UINotificationFeedbackGenerator.FeedbackType`.
+    ///
+    /// - Returns: A `UINotificationFeedbackGenerator.FeedbackType` or `nil` if `none` is selected.
     var feedBackStyle: UINotificationFeedbackGenerator.FeedbackType? {
         switch self {
         case .short:
@@ -23,5 +40,4 @@ enum HapticFeedbackOption: Hashable {
             return nil
         }
     }
-    
 }

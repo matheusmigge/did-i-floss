@@ -7,8 +7,12 @@
 
 import Foundation
 
+/// A protocol that defines the behavior of a haptics manager.
 protocol HapticsManagerProtocol: AnyObject {
-    func vibrateAddLogCelebration()
-    func vibrateLogRemoval()
     
+    /// Triggers haptic feedback for a celebration event.
+    func vibrateAddLogCelebration()
+    
+    /// Triggers haptic feedback for a log removal event.
+    func vibrateLogRemoval()
 }
