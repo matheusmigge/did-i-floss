@@ -1,5 +1,5 @@
 //
-//  addLogView.swift
+//  AddFlossView.swift
 //  DidIFloss
 //
 //  Created by Lucas Migge on 31/01/24.
@@ -8,13 +8,13 @@
 import SwiftUI
 
 
-struct AddLogView: View {
+struct AddFlossView: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.colorScheme) var colorScheme
     
     @State var selectedDate: Date = .now
     
-    weak var delegate: AddLogDelegate?
+    weak var delegate: AddFlossDelegate?
     
     var isSelectedDateValid: Bool {
         selectedDate < .now
@@ -82,5 +82,5 @@ struct AddLogView: View {
 }
 
 #Preview {
-    AddLogView()
+    AddFlossView()
 }

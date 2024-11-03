@@ -101,7 +101,7 @@ struct HomeView: View {
                         viewModel.onboardingOver()
                     }
             case .addLogSheet:
-                AddLogView(delegate: self.viewModel)
+                AddFlossView(delegate: self.viewModel)
                 
             case .shareStreak(let message):
                 ShareStreakView(streakDescription: message)

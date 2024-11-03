@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension HomeViewModel: AddLogDelegate {
+extension HomeViewModel: AddFlossDelegate {
     func addLogRecord(date: Date) {
         
         logInteractionHandler.handleLogRecord(for: date)
