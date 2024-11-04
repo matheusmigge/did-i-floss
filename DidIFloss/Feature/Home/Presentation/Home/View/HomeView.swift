@@ -112,7 +112,7 @@ struct HomeView: View {
             }
         })
         .onAppear {
-            viewModel.viewDidApper()
+            viewModel.viewDidAppear()
         }
     }
 }

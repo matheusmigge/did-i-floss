@@ -38,12 +38,15 @@ struct HandleLogInteractionUseCase: HandleLogInteractionUseCaseProtocol {
     
     let recordsRepository: PersistenceManagerProtocol
     let notificationService: FlossRemindersService
+    let hapticsManager: HapticsManagerProtocol
     
     init(recordsRepository: PersistenceManagerProtocol = PersistenceManager.shared,
-         notificationService: FlossRemindersService = NotificationService.current()
+         notificationService: FlossRemindersService = NotificationService.current(),
+         hapticsManager: HapticsManagerProtocol = HapticsManager()
     ) {
         self.recordsRepository = recordsRepository
         self.notificationService = notificationService
+        self.hapticsManager = hapticsManager
     }
     
     func handleLogRecord(for log: Date) {
@@ -58,6 +61,7 @@ struct HandleLogInteractionUseCase: HandleLogInteractionUseCaseProtocol {
             date = Calendar.createDate(year: calendarComponents.year, month: calendarComponents.month, day: calendarComponents.day, hour: timeComponents.hour, minute: timeComponents.minute) ?? log
         }
         
+        hapticsManager.vibrateAddLogCelebration()
         recordsRepository.saveFlossDate(date: date)
         scheduleNotifications(flossDate: date)
     }
@@ -77,6 +81,7 @@ struct HandleLogInteractionUseCase: HandleLogInteractionUseCaseProtocol {
             }
             
             self.recordsRepository.deleteFlossRecords(selectedRecords)
+            hapticsManager.vibrateLogRemoval()
         }
         
         if Calendar.current.isDateInToday(date) {

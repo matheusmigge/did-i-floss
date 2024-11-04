@@ -9,9 +9,7 @@ import Foundation
 
 extension HomeViewModel: AddFlossDelegate {
     func addLogRecord(date: Date) {
-        
         logInteractionHandler.handleLogRecord(for: date)
-        userFeedbackService?.vibrateAddLogCelebration()
         
         sheetView = nil
         showingCelebration = true

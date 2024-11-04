@@ -13,19 +13,15 @@ class LogRecordsViewModel: ObservableObject {
     @Published var selectedDate: Date?
     
     weak var recordsRepository: FlossRecordsRepositoryProtocol?
-    weak var userFeedbackService: HapticsManagerProtocol?
     var logRecordsHandler: HandleLogInteractionUseCaseProtocol
     
     @Published var records: [FlossRecord] = []
     
     init(persistenceService: FlossRecordsRepositoryProtocol = PersistenceManager.shared,
-         userFeedbackService: HapticsManagerProtocol = HapticsManager.shared,
          logRecordsHandler: HandleLogInteractionUseCaseProtocol = HandleLogInteractionUseCase()
     ) {
         self.recordsRepository = persistenceService
-        self.userFeedbackService = userFeedbackService
         self.logRecordsHandler = logRecordsHandler
-        
     }
     
     private func loadRecords() {
@@ -49,9 +45,7 @@ class LogRecordsViewModel: ObservableObject {
     func removeRecord(_ record: FlossRecord) {
         
         logRecordsHandler.removeLogRecord(for: record)
-        
         loadRecords()
-        userFeedbackService?.vibrateLogRemoval()
     }
     
     

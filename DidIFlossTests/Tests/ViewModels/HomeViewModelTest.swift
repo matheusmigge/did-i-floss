@@ -42,7 +42,7 @@ final class HomeViewModelTest: XCTestCase {
     func testViewModelHasObserverAfterOnAppear() {
         persistenceMock.delegate = nil
         
-        viewModel.viewDidApper()
+        viewModel.viewDidAppear()
         
         XCTAssertNotNil(persistenceMock.delegate, "❌ HomeViewModel needs to be updated if another class makes changes on the floss records database")
     }
@@ -51,7 +51,7 @@ final class HomeViewModelTest: XCTestCase {
     func testLoadsRecordsWhenViewAppears() {
         viewModel.flossRecords = []
         
-        viewModel.viewDidApper()
+        viewModel.viewDidAppear()
         
         XCTAssertTrue(persistenceMock.didCallGetFlossRecord, "❌ HomeViewModel should fetch data when view appears")
         
@@ -60,7 +60,7 @@ final class HomeViewModelTest: XCTestCase {
     func testShouldPresentOnboardingWhenNewUser() {
         persistenceMock.isNewUser = true
         
-        viewModel.viewDidApper()
+        viewModel.viewDidAppear()
         
         // Expectation to fulfill after delay
         let expectation = XCTestExpectation(description: "sheetView set to welcomeSheet")
@@ -78,7 +78,7 @@ final class HomeViewModelTest: XCTestCase {
     func testShouldNotPresentOnboardingIfNotNewUser() {
         persistenceMock.isNewUser = false
         
-        viewModel.viewDidApper()
+        viewModel.viewDidAppear()
         
         // Expectation to fulfill after delay
         let expectation = XCTestExpectation(description: "sheetView set to welcomeSheet")
@@ -148,7 +148,7 @@ final class HomeViewModelTest: XCTestCase {
     
     func testViewModelShouldUpdateWhenMonitorChangesCalled() {
         
-        viewModel.viewDidApper()
+        viewModel.viewDidAppear()
         persistenceMock.didCallGetFlossRecord = false
         
         viewModel.hadChangesInFlossRecordDataBase()

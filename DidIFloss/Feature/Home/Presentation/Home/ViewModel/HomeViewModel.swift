@@ -5,7 +5,6 @@
 //  Created by Matheus Migge on 24/01/24.
 //
 
-import Foundation
 import Notification
 import SwiftUI
 
@@ -23,7 +22,6 @@ class HomeViewModel: ObservableObject {
     
     weak var persistence: PersistenceManagerProtocol?
     weak var notificationService: FlossRemindersService?
-    weak var userFeedbackService: HapticsManagerProtocol?
     var logInteractionHandler: HandleLogInteractionUseCaseProtocol
     
     var streakBoardViewModel: StreakBoardViewModel {
@@ -33,23 +31,20 @@ class HomeViewModel: ObservableObject {
     
     init(persistence: PersistenceManagerProtocol = PersistenceManager.shared,
          notificationService: FlossRemindersService = NotificationService.current(),
-         userFeedbackService: HapticsManagerProtocol = HapticsManager.shared,
          logInteractionHandler: HandleLogInteractionUseCaseProtocol = HandleLogInteractionUseCase()
     ) {
         self.persistence = persistence
         self.notificationService = notificationService
-        self.userFeedbackService = userFeedbackService
         self.logInteractionHandler = logInteractionHandler
     }
     
-    // MARK: Did Apper
+    // MARK: Did Appear
     
-    func viewDidApper() {
+    func viewDidAppear() {
+        self.checkForOnboarding()
         self.persistence?.delegate = self
         
         self.loadData()
-        self.checkForOnboarding()
-        
     }
     
     func loadData() {
