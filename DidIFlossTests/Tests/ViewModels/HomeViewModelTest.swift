@@ -14,7 +14,6 @@ final class HomeViewModelTest: XCTestCase {
     
     var persistenceMock: PersistenceManagerMock!
     var notificationMock: NotificationManagerMock!
-    var hapticsMock: HapticsManagerMock!
     var logHandler: HandleLogInteractionUseCaseMock!
     var flossDataProvider: FlossRecordDataProviderMock!
     
@@ -24,13 +23,11 @@ final class HomeViewModelTest: XCTestCase {
         
         persistenceMock = PersistenceManagerMock()
         notificationMock = NotificationManagerMock()
-        hapticsMock = HapticsManagerMock()
         logHandler = HandleLogInteractionUseCaseMock()
         
         
         viewModel = HomeViewModel(persistence: persistenceMock,
                                   notificationService: notificationMock,
-                                  userFeedbackService: hapticsMock,
                                   logInteractionHandler: logHandler)
     }
     
@@ -121,7 +118,6 @@ final class HomeViewModelTest: XCTestCase {
     func testAddLogSheetCallsDependencies() {
         logHandler.didCallHandleLogRecord = false
         persistenceMock.didCallGetFlossRecord = false
-        hapticsMock.didCallVibrateCelebration = false
         viewModel.showingCelebration = false
         viewModel.sheetView = .addLogSheet
         
@@ -130,7 +126,6 @@ final class HomeViewModelTest: XCTestCase {
         
         
         XCTAssertTrue(logHandler.didCallHandleLogRecord, "Method should call UseCase log Handler")
-        XCTAssertTrue(hapticsMock.didCallVibrateCelebration, "Method should call haptics feedback")
         XCTAssertTrue(viewModel.showingCelebration, "Method should present celebration")
         XCTAssertNil(viewModel.sheetView, "Method should clear any sheet active")
         XCTAssertTrue(persistenceMock.didCallGetFlossRecord, "ViewModel should update after method action")
@@ -187,23 +182,16 @@ final class HomeViewModelTest: XCTestCase {
         XCTAssertFalse(viewModel.showingAlert)
         XCTAssertNil(viewModel.focusedDate)
         XCTAssertTrue(logHandler.didCallHandleLogRecord)
-        
-    
     }
     
     func testRemoveRecordsShouldCallPersistenceWhenHasDate() {
         
         viewModel.focusedDate = .now
         logHandler.didCallRemoveAllLogRecords = false
-        hapticsMock.didCallVibrateRemoval = false
-        
         
         viewModel.removeRecordsForFocusedDate()
         
-        
         XCTAssertTrue(logHandler.didCallRemoveAllLogRecords)
-        XCTAssertTrue(hapticsMock.didCallVibrateRemoval)
-        
     }
     
 }
